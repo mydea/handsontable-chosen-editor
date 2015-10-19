@@ -2,6 +2,8 @@
 
 Use a chosen select field in a [Handsontable](http://handsontable.com).
 
+[View Demo](http://mydea.github.io/handsontable-chosen-editor/)
+
 ## Dependencies
 
 * jQuery
