@@ -224,6 +224,11 @@
                     e.stopPropagation();
                 }
 
+                if(e.keyCode === Handsontable.helper.KEY_CODES.ARROW_DOWN || e.keyCode === Handsontable.helper.KEY_CODES.ARROW_UP) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+
 
             });
 
