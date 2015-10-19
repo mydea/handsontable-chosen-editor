@@ -1,0 +1,24 @@
+{
+  "name": "handsontable-chosen-editor",
+  "main": "handsontable-chosen-editor.js",
+  "version": "0.1.0",
+  "authors": [
+    "Francesco Novy <francesconovy@gmail.com>"
+  ],
+  "description": "A plugin to use chosen as editor for Handsontable",
+  "moduleType": [],
+  "keywords": [
+    "chosen",
+    "handsontable",
+    "hot"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
