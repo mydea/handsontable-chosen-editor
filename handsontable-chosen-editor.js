@@ -102,21 +102,6 @@
                 }
                 break;
 
-            /*case keyCodes.ENTER:
-             var selected = that.instance.getSelected();
-             var isMultipleSelection = !(selected[0] === selected[2] && selected[1] === selected[3]);
-             if ((ctrlDown && !isMultipleSelection) || event.altKey) { //if ctrl+enter or alt+enter, add new line
-             if (that.isOpened()) {
-             that.val(that.val() + '\n');
-             that.focus();
-             } else {
-             that.beginEditing(that.originalValue + '\n')
-             }
-             event.stopImmediatePropagation();
-             }
-             event.preventDefault(); //don't add newline to field
-             break;*/
-
             case keyCodes.ENTER:
                 if (that.cellProperties.chosenOptions.multiple) {
                     event.stopImmediatePropagation();
@@ -211,8 +196,17 @@
 
             $(self.TEXTAREA_PARENT).find("input").on("keydown", function(e) {
                 if(e.keyCode === Handsontable.helper.KEY_CODES.ENTER /*|| e.keyCode === Handsontable.helper.KEY_CODES.BACKSPACE*/) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                    if($(this).val()) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    } else {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        self.close();
+                        self.finishEditing();
+                    }
+
                 }
 
                 if( e.keyCode === Handsontable.helper.KEY_CODES.BACKSPACE) {
@@ -228,7 +222,6 @@
                     e.preventDefault();
                     e.stopPropagation();
                 }
-
 
             });
 
@@ -258,15 +251,6 @@
         this.$textarea.hide();
         Handsontable.editors.TextEditor.prototype.close.apply(this, arguments);
     };
-
-    /*ChosenEditor.prototype.val = function (value) {
-        if (typeof value == 'undefined') {
-            return this.$textarea.val();
-        } else {
-            this.$textarea.val(value);
-        }
-    };*/
-
 
     ChosenEditor.prototype.getValue = function() {
        if(!this.$textarea.val()) {
