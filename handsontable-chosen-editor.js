@@ -24,14 +24,14 @@
         //this.TEXTAREA.setAttribute('type', 'text');
         this.$textarea = $(this.TEXTAREA);
 
-        Handsontable.Dom.addClass(this.TEXTAREA, 'handsontableInput');
+        Handsontable.dom.addClass(this.TEXTAREA, 'handsontableInput');
 
         this.textareaStyle = this.TEXTAREA.style;
         this.textareaStyle.width = 0;
         this.textareaStyle.height = 0;
 
         this.TEXTAREA_PARENT = document.createElement('DIV');
-        Handsontable.Dom.addClass(this.TEXTAREA_PARENT, 'handsontableInputHolder');
+        Handsontable.dom.addClass(this.TEXTAREA_PARENT, 'handsontableInputHolder');
 
         this.textareaParentStyle = this.TEXTAREA_PARENT.style;
         this.textareaParentStyle.top = 0;
@@ -87,7 +87,7 @@
 
         switch (event.keyCode) {
             case keyCodes.ARROW_RIGHT:
-                if (Handsontable.Dom.getCaretPosition(target) !== target.value.length) {
+                if (Handsontable.dom.getCaretPosition(target) !== target.value.length) {
                     event.stopImmediatePropagation();
                 } else {
                     that.$textarea.trigger("chosen:close");
@@ -95,7 +95,7 @@
                 break;
 
             case keyCodes.ARROW_LEFT:
-                if (Handsontable.Dom.getCaretPosition(target) !== 0) {
+                if (Handsontable.dom.getCaretPosition(target) !== 0) {
                     event.stopImmediatePropagation();
                 } else {
                     that.$textarea.trigger("chosen:close");
@@ -228,7 +228,7 @@
             setTimeout(function () {
                 self.$textarea.trigger("chosen:activate").focus();
 
-                if (keyboardEvent && keyboardEvent.keyCode) {
+                if (keyboardEvent && keyboardEvent.keyCode && keyboardEvent.keyCode != 113) {
                     var key = keyboardEvent.keyCode;
                     var keyText = (String.fromCharCode((96 <= key && key <= 105) ? key - 48 : key)).toLowerCase();
 
