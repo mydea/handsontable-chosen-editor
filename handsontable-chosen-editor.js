@@ -228,7 +228,7 @@
             setTimeout(function () {
                 self.$textarea.trigger("chosen:activate").focus();
 
-                if (keyboardEvent && keyboardEvent.keyCode) {
+                if (keyboardEvent && keyboardEvent.keyCode && keyboardEvent.keyCode != 113) {
                     var key = keyboardEvent.keyCode;
                     var keyText = (String.fromCharCode((96 <= key && key <= 105) ? key - 48 : key)).toLowerCase();
 
