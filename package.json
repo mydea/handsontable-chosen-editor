@@ -1,0 +1,19 @@
+{
+  "name": "handsontable-chosen-editor",
+  "version": "1.0.0",
+  "description": "Use a chosen select field in a [Handsontable](http://handsontable.com).",
+  "main": "handsontable-chosen-editor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/golmansax/handsontable-chosen-editor.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/golmansax/handsontable-chosen-editor/issues"
+  },
+  "homepage": "https://github.com/golmansax/handsontable-chosen-editor#readme"
+}

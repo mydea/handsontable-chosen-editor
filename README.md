@@ -66,17 +66,24 @@ function customDropdownRenderer(instance, td, row, col, prop, value, cellPropert
     var selectedId;
     var optionsList = cellProperties.chosenOptions.data;
 
+    if(typeof optionsList === "undefined" || typeof optionsList.length === "undefined" || !optionsList.length) {
+        Handsontable.cellTypes.text.renderer(instance, td, row, col, prop, value, cellProperties);
+        return td;
+    }
+
     var values = (value + "").split(",");
-    var value = [];
+    value = [];
     for (var index = 0; index < optionsList.length; index++) {
+
         if (values.indexOf(optionsList[index].id + "") > -1) {
             selectedId = optionsList[index].id;
             value.push(optionsList[index].label);
         }
     }
     value = value.join(", ");
-    
-    Handsontable.TextCell.renderer.apply(this, arguments);
+
+    Handsontable.cellTypes.text.renderer(instance, td, row, col, prop, value, cellProperties);
+    return td;
 }
 ```
 

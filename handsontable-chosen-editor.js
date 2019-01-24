@@ -21,6 +21,10 @@
         this.$body = $(document.body);
 
         this.TEXTAREA = document.createElement('select');
+
+        // Handsontable copy paste plugin calls this.TEXTAREA.select()
+        this.TEXTAREA.select = function () {};
+
         //this.TEXTAREA.setAttribute('type', 'text');
         this.$textarea = $(this.TEXTAREA);
 
@@ -253,9 +257,9 @@
     };
 
     ChosenEditor.prototype.getValue = function() {
-       if(!this.$textarea.val()) {
-           return "";
-       }
+        if(!this.$textarea.val()) {
+            return "";
+        }
         if(typeof this.$textarea.val() === "object") {
             return this.$textarea.val().join(",");
         }
